@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coach Gym</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+    }
+
+    .hero {
+      padding: 60px 20px;
+      background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+                  url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    .form-box {
+      max-width: 420px;
+      margin: 30px auto 60px;
+      background: #1b1b1b;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 0 20px rgba(0,0,0,.25);
+    }
+
+    input, button {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input {
+      background: #fff;
+      color: #111;
+    }
+
+    button {
+      background: #d4af37;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: .95;
+    }
+
+    #status {
+      margin-top: 12px;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Coach Gym</h1>
+    <p>سجل الآن وابدأ رحلتك الرياضية</p>
+  </section>
+
+  <div class="form-box">
+    <form id="form">
+      <input type="text" name="name" placeholder="الاسم" required />
+      <input type="number" name="age" placeholder="العمر" required />
+      <input type="number" name="height" placeholder="الطول" required />
+      <input type="text" name="goal" placeholder="الهدف" required />
+      <input type="number" name="weight" placeholder="الوزن" required />
+      <button type="submit">تسجيل</button>
+      <div id="status"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("form");
+    const statusText = document.getElementById("status");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const data = {
+        name: this.name.value,
+        age: this.age.value,
+        height: this.height.value,
+        goal: this.goal.value,
+        weight: this.weight.value
+      };
+
+      fetch("https://script.google.com/macros/s/AKfycby2NdtRThFZeeQKq8qY3pMWAhKCp0q-8K0RpV4xZYM_D6tXG0l06NPlw-JxxY-G9h07eg/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
+      })
+      .then(() => {
+        statusText.textContent = "تم إرسال التسجيل بنجاح ✅";
+        form.reset();
+      })
+      .catch(() => {
+        statusText.textContent = "صار خطأ في الإرسال ❌";
+      });
+    });
+  </script>
+
+</body>
+</html>
