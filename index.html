@@ -4,9 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>يزيد المفرح</title>
-
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -15,167 +20,361 @@
       color: white;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     .navbar {
       position: sticky;
       top: 0;
-      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(8px);
       display: flex;
       justify-content: space-between;
+      align-items: center;
       padding: 16px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-right,
+    .nav-left {
+      display: flex;
+      gap: 24px;
+      align-items: center;
     }
 
     .nav-link {
+      color: white;
+      font-size: 17px;
       cursor: pointer;
-      margin: 0 10px;
+      transition: 0.25s;
+    }
+
+    .nav-link:hover {
+      color: #d4af37;
     }
 
     .hero {
       height: 60vh;
       background:
         linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)),
-        url('yzed.jpg') center/cover no-repeat;
+        url('yzed.png') center/cover no-repeat;
     }
 
     .section {
-      display: none;
-      padding: 60px 20px;
-    }
-
-    .section.active {
-      display: block;
+      padding: 80px 20px;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
     }
 
-    .title {
+    .section-title {
       text-align: center;
+      font-size: 36px;
+      margin-bottom: 16px;
       color: #d4af37;
-      font-size: 32px;
-      margin-bottom: 30px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #cfcfcf;
+      margin-bottom: 40px;
+      font-size: 18px;
+    }
+
+    .about-box {
+      background: #171717;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 30px;
+      line-height: 2;
+      font-size: 22px;
+      color: #f1f1f1;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
     .card {
       background: #171717;
-      padding: 20px;
-      margin: 10px;
-      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 28px 22px;
       text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
     }
 
-    input, button {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 8px;
-      border: none;
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212,175,55,0.45);
     }
 
-    button {
-      background: #d4af37;
+    .card h3 {
+      margin-top: 0;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .price {
+      color: #d4af37;
+      font-size: 30px;
       font-weight: bold;
+      margin: 18px 0;
+    }
+
+    .card p {
+      color: #d0d0d0;
+      line-height: 1.8;
+      min-height: 72px;
+    }
+
+    .card button {
+      display: inline-block;
+      margin-top: 12px;
+      background: #d4af37;
+      color: #111;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .card button:hover {
+      opacity: .95;
+      transform: translateY(-1px);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .review-box {
+      background: #171717;
+      border: 1px dashed rgba(255,255,255,0.18);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .form-box {
+      max-width: 520px;
+      margin: auto;
+      background: #171717;
+      padding: 28px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    input, .submit-btn {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 12px;
+      border: none;
+      font-size: 16px;
+    }
+
+    input {
+      background: #fff;
+      color: #111;
+    }
+
+    .submit-btn {
+      background: #d4af37;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .submit-btn:hover {
+      opacity: .95;
+      transform: translateY(-1px);
+    }
+
+    #status {
+      text-align: center;
+      margin-top: 12px;
+      color: #fff;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 28px 20px;
+      color: #bdbdbd;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        padding: 14px 18px;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-right,
+      .nav-left {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <div class="navbar">
-    <div>
-      <span class="nav-link" onclick="show('about')">عني</span>
+  <nav class="navbar">
+    <div class="nav-right">
+      <a class="nav-link" href="#about">عني</a>
     </div>
 
-    <div>
-      <span class="nav-link" onclick="show('pricing')">الأسعار</span>
-      <span class="nav-link" onclick="show('reviews')">الآراء</span>
-      <span class="nav-link" onclick="show('register')">التسجيل</span>
+    <div class="nav-left">
+      <a class="nav-link" href="#pricing">الأسعار</a>
+      <a class="nav-link" href="#reviews">آراء المتدربين</a>
+      <a class="nav-link" href="#register">التسجيل</a>
     </div>
-  </div>
+  </nav>
 
-  <!-- صورة بدون كتابة -->
   <div class="hero"></div>
 
-  <!-- عني -->
-  <div id="about" class="section active">
+  <section id="about" class="section">
     <div class="container">
-      <div class="title">عني</div>
-      <div class="card">
-        يزيد المفرح أعظم مدرب 💪🔥
+      <h2 class="section-title">عني</h2>
+      <p class="section-subtitle">نبذة مختصرة</p>
+      <div class="about-box">
+        أنا يزيد المفرح
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- الأسعار -->
-  <div id="pricing" class="section">
+  <section id="pricing" class="section">
     <div class="container">
-      <div class="title">الأسعار</div>
+      <h2 class="section-title">الأسعار</h2>
+      <p class="section-subtitle">اختر الباقة المناسبة لك</p>
 
-      <div class="card">شهر - 150 ريال</div>
-      <div class="card">شهرين - 250 ريال</div>
-      <div class="card">3 شهور - 350 ريال</div>
+      <div class="cards">
+        <div class="card">
+          <h3>شهر</h3>
+          <div class="price">150 ريال</div>
+          <p>اشتراك تدريب شخصي لمدة شهر.</p>
+          <button type="button" onclick="goToRegister()">اختيار الباقة</button>
+        </div>
 
+        <div class="card">
+          <h3>شهرين</h3>
+          <div class="price">250 ريال</div>
+          <p>اشتراك تدريب شخصي لمدة شهرين.</p>
+          <button type="button" onclick="goToRegister()">اختيار الباقة</button>
+        </div>
+
+        <div class="card">
+          <h3>3 أشهر</h3>
+          <div class="price">350 ريال</div>
+          <p>اشتراك تدريب شخصي لمدة 3 أشهر.</p>
+          <button type="button" onclick="goToRegister()">اختيار الباقة</button>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- الآراء -->
-  <div id="reviews" class="section">
+  <section id="reviews" class="section">
     <div class="container">
-      <div class="title">آراء المتدربين</div>
+      <h2 class="section-title">آراء المتدربين</h2>
+      <p class="section-subtitle">أضف الصور لاحقًا</p>
 
-      <div class="card">review1.jpg</div>
-      <div class="card">review2.jpg</div>
-      <div class="card">review3.jpg</div>
-
+      <div class="reviews-grid">
+        <div class="review-box">مكان الصورة 1</div>
+        <div class="review-box">مكان الصورة 2</div>
+        <div class="review-box">مكان الصورة 3</div>
+        <div class="review-box">مكان الصورة 4</div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- التسجيل -->
-  <div id="register" class="section">
+  <section id="register" class="section">
     <div class="container">
-      <div class="title">التسجيل</div>
+      <h2 class="section-title">التسجيل</h2>
+      <p class="section-subtitle">عبّئ النموذج وسأصلك قريبًا</p>
 
-      <form id="form">
-        <input name="name" placeholder="الاسم" required />
-        <input name="age" placeholder="العمر" required />
-        <input name="height" placeholder="الطول" required />
-        <input name="goal" placeholder="الهدف" required />
-        <input name="weight" placeholder="الوزن" required />
-        <button>تسجيل</button>
-      </form>
-
-      <div id="status"></div>
+      <div class="form-box">
+        <form id="form">
+          <input type="text" name="name" placeholder="الاسم" required />
+          <input type="number" name="age" placeholder="العمر" required />
+          <input type="number" name="height" placeholder="الطول" required />
+          <input type="text" name="goal" placeholder="الهدف" required />
+          <input type="number" name="weight" placeholder="الوزن" required />
+          <button class="submit-btn" type="submit">تسجيل</button>
+          <div id="status"></div>
+        </form>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <footer class="footer">
+    جميع الحقوق محفوظة
+  </footer>
 
   <script>
-    function show(id) {
-      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      window.scrollTo(0,0);
+    function goToRegister() {
+      document.getElementById("register").scrollIntoView({ behavior: "smooth" });
     }
 
     const form = document.getElementById("form");
+    const statusText = document.getElementById("status");
 
     form.addEventListener("submit", function(e) {
       e.preventDefault();
 
+      const data = {
+        name: this.name.value,
+        age: this.age.value,
+        height: this.height.value,
+        goal: this.goal.value,
+        weight: this.weight.value
+      };
+
       fetch("https://script.google.com/macros/s/AKfycby2NdtRThFZeeQKq8qY3pMWAhKCp0q-8K0RpV4xZYM_D6tXG0l06NPlw-JxxY-G9h07eg/exec", {
         method: "POST",
-        body: JSON.stringify({
-          name: form.name.value,
-          age: form.age.value,
-          height: form.height.value,
-          goal: form.goal.value,
-          weight: form.weight.value
-        })
+        body: JSON.stringify(data)
+      })
+      .then(() => {
+        statusText.textContent = "تم إرسال التسجيل بنجاح ✅";
+        form.reset();
+      })
+      .catch(() => {
+        statusText.textContent = "صار خطأ في الإرسال ❌";
       });
-
-      document.getElementById("status").innerText = "تم الإرسال ✅";
-      form.reset();
     });
   </script>
 
