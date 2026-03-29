@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title></title>
+  <title>يزيد المفرح</title>
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -16,78 +15,32 @@
       color: white;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.92);
-      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.9);
       display: flex;
       justify-content: space-between;
-      align-items: center;
       padding: 16px 40px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav-right,
-    .nav-left {
-      display: flex;
-      gap: 24px;
-      align-items: center;
     }
 
     .nav-link {
-      color: white;
-      font-size: 17px;
       cursor: pointer;
-      transition: 0.25s;
-      background: transparent;
-      border: none;
-      padding: 0;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: #d4af37;
+      margin: 0 10px;
     }
 
     .hero {
-      min-height: 55vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
+      height: 60vh;
       background:
-        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.68)),
+        linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)),
         url('yzed.jpg') center/cover no-repeat;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      animation: fadeUp 0.8s ease;
-    }
-
-    .hero h1 {
-      font-size: 58px;
-      margin: 0 0 12px;
-    }
-
-    .hero p {
-      font-size: 24px;
-      margin: 0;
-      color: #e8e8e8;
     }
 
     .section {
       display: none;
-      padding: 80px 20px;
-      animation: fadeUp 0.45s ease;
+      padding: 60px 20px;
     }
 
     .section.active {
@@ -95,374 +48,134 @@
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: auto;
     }
 
-    .section-title {
+    .title {
       text-align: center;
-      font-size: 36px;
-      margin-bottom: 16px;
       color: #d4af37;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #cfcfcf;
-      margin-bottom: 40px;
-      font-size: 18px;
-    }
-
-    .about-box {
-      background: #171717;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 30px;
-      line-height: 2;
-      font-size: 18px;
-      color: #f1f1f1;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      text-align: center;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      font-size: 32px;
+      margin-bottom: 30px;
     }
 
     .card {
       background: #171717;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 28px 22px;
-      text-align: center;
-      transition: 0.3s;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(212,175,55,0.45);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      font-size: 24px;
-      color: #fff;
-    }
-
-    .price {
-      color: #d4af37;
-      font-size: 30px;
-      font-weight: bold;
-      margin: 18px 0;
-    }
-
-    .card p {
-      color: #d0d0d0;
-      line-height: 1.8;
-      min-height: 72px;
-    }
-
-    .card button {
-      display: inline-block;
-      margin-top: 12px;
-      background: #d4af37;
-      color: #111;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .review-box {
-      background: #171717;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    }
-
-    .review-box img {
-      width: 100%;
-      display: block;
-      height: 380px;
-      object-fit: cover;
-    }
-
-    .review-text {
-      padding: 16px;
-      color: #ddd;
-      text-align: center;
-    }
-
-    .form-box {
-      max-width: 520px;
-      margin: auto;
-      background: #171717;
-      padding: 28px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    }
-
-    input, .submit-btn {
-      width: 100%;
-      padding: 15px;
-      margin: 10px 0;
+      padding: 20px;
+      margin: 10px;
       border-radius: 12px;
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
       border: none;
-      font-size: 16px;
     }
 
-    input {
-      background: #fff;
-      color: #111;
-    }
-
-    .submit-btn {
+    button {
       background: #d4af37;
-      color: #111;
       font-weight: bold;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-
-    .submit-btn:hover {
-      opacity: .95;
-      transform: translateY(-1px);
-    }
-
-    #status {
-      text-align: center;
-      margin-top: 12px;
-      color: #fff;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 28px 20px;
-      color: #bdbdbd;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 40px;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 900px) {
-      .cards,
-      .reviews-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .navbar {
-        padding: 14px 18px;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .nav-right,
-      .nav-left {
-        gap: 14px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .hero p {
-        font-size: 20px;
-      }
     }
   </style>
 </head>
+
 <body>
 
-  <nav class="navbar">
-    <div class="nav-right">
-      <button class="nav-link active" data-section="about">عني</button>
+  <div class="navbar">
+    <div>
+      <span class="nav-link" onclick="show('about')">عني</span>
     </div>
 
-    <div class="nav-left">
-      <button class="nav-link" data-section="pricing">أسعار الاشتراكات</button>
-      <button class="nav-link" data-section="reviews">آراء المتدربين</button>
-      <button class="nav-link" data-section="register">التسجيل</button>
+    <div>
+      <span class="nav-link" onclick="show('pricing')">الأسعار</span>
+      <span class="nav-link" onclick="show('reviews')">الآراء</span>
+      <span class="nav-link" onclick="show('register')">التسجيل</span>
     </div>
-  </nav>
+  </div>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>يزيد المفرح</h1>
-      <p>سجل الآن وابدأ رحلتك الرياضية</p>
-    </div>
-  </section>
+  <!-- صورة بدون كتابة -->
+  <div class="hero"></div>
 
-  <section class="section active" id="about">
+  <!-- عني -->
+  <div id="about" class="section active">
     <div class="container">
-      <h2 class="section-title">عني</h2>
-      <p class="section-subtitle">نبذة مختصرة</p>
-      <div class="about-box">
-        أنا يزيد المفرح، أعظم مدرب لياقة وبناء أجسام 💪🔥<br><br>
-        أساعد المتدربين على الوصول لأفضل نسخة من أنفسهم، سواء كان الهدف تنشيف، تضخيم، أو تحسين اللياقة البدنية.<br><br>
-        من خلال برامج تدريبية مخصصة ومتابعة مستمرة، أقدّم لك خطة واضحة تساعدك على تحقيق نتائج حقيقية وتطور ملحوظ.<br><br>
-        إذا كنت تبحث عن التغيير الحقيقي والبداية الصح، فأنت في المكان المناسب.
+      <div class="title">عني</div>
+      <div class="card">
+        يزيد المفرح أعظم مدرب 💪🔥
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section" id="pricing">
+  <!-- الأسعار -->
+  <div id="pricing" class="section">
     <div class="container">
-      <h2 class="section-title">أسعار الاشتراكات</h2>
-      <p class="section-subtitle">اختر الباقة المناسبة لك</p>
+      <div class="title">الأسعار</div>
 
-      <div class="cards">
-        <div class="card">
-          <h3>تدريب شخصي شهر</h3>
-          <div class="price">150 ريال</div>
-          <p>متابعة وتدريب شخصي لمدة شهر كامل بخطة مناسبة لهدفك.</p>
-          <button type="button" onclick="showSection('register')">اشترك الآن</button>
-        </div>
+      <div class="card">شهر - 150 ريال</div>
+      <div class="card">شهرين - 250 ريال</div>
+      <div class="card">3 شهور - 350 ريال</div>
 
-        <div class="card">
-          <h3>تدريب شخصي شهرين</h3>
-          <div class="price">250 ريال</div>
-          <p>برنامج تدريب شخصي لمدة شهرين مع متابعة أفضل وتطوير تدريجي.</p>
-          <button type="button" onclick="showSection('register')">اشترك الآن</button>
-        </div>
-
-        <div class="card">
-          <h3>تدريب شخصي 3 شهور</h3>
-          <div class="price">350 ريال</div>
-          <p>باقة متكاملة لمدة 3 شهور للوصول إلى نتيجة أوضح وثبات أكبر.</p>
-          <button type="button" onclick="showSection('register')">اشترك الآن</button>
-        </div>
-      </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section" id="reviews">
+  <!-- الآراء -->
+  <div id="reviews" class="section">
     <div class="container">
-      <h2 class="section-title">آراء المتدربين</h2>
-      <p class="section-subtitle">نتائج وتجارب بعض المتدربين</p>
+      <div class="title">آراء المتدربين</div>
 
-      <div class="reviews-grid">
-        <div class="review-box">
-          <img src="review1.jpg" alt="رأي متدرب 1">
-          <div class="review-text">صورة رأي متدرب</div>
-        </div>
+      <div class="card">review1.jpg</div>
+      <div class="card">review2.jpg</div>
+      <div class="card">review3.jpg</div>
 
-        <div class="review-box">
-          <img src="review2.jpg" alt="رأي متدرب 2">
-          <div class="review-text">صورة رأي متدرب</div>
-        </div>
-
-        <div class="review-box">
-          <img src="review3.jpg" alt="رأي متدرب 3">
-          <div class="review-text">صورة رأي متدرب</div>
-        </div>
-      </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section" id="register">
+  <!-- التسجيل -->
+  <div id="register" class="section">
     <div class="container">
-      <h2 class="section-title">التسجيل</h2>
-      <p class="section-subtitle">عبّئ النموذج وسأصلك قريبًا</p>
+      <div class="title">التسجيل</div>
 
-      <div class="form-box">
-        <form id="form">
-          <input type="text" name="name" placeholder="الاسم" required />
-          <input type="number" name="age" placeholder="العمر" required />
-          <input type="number" name="height" placeholder="الطول" required />
-          <input type="text" name="goal" placeholder="الهدف" required />
-          <input type="number" name="weight" placeholder="الوزن" required />
-          <button class="submit-btn" type="submit">تسجيل</button>
-          <div id="status"></div>
-        </form>
-      </div>
+      <form id="form">
+        <input name="name" placeholder="الاسم" required />
+        <input name="age" placeholder="العمر" required />
+        <input name="height" placeholder="الطول" required />
+        <input name="goal" placeholder="الهدف" required />
+        <input name="weight" placeholder="الوزن" required />
+        <button>تسجيل</button>
+      </form>
+
+      <div id="status"></div>
     </div>
-  </section>
-
-  <footer class="footer">
-    جميع الحقوق محفوظة - يزيد المفرح
-  </footer>
+  </div>
 
   <script>
-    const navLinks = document.querySelectorAll(".nav-link");
-    const sections = document.querySelectorAll(".section");
-
-    function showSection(sectionId) {
-      sections.forEach(section => {
-        section.classList.remove("active");
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-      });
-
-      const targetSection = document.getElementById(sectionId);
-      if (targetSection) {
-        targetSection.classList.add("active");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      const activeLink = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
-      if (activeLink) {
-        activeLink.classList.add("active");
-      }
+    function show(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo(0,0);
     }
 
-    navLinks.forEach(link => {
-      link.addEventListener("click", function() {
-        const sectionId = this.getAttribute("data-section");
-        showSection(sectionId);
-      });
-    });
-
     const form = document.getElementById("form");
-    const statusText = document.getElementById("status");
 
     form.addEventListener("submit", function(e) {
       e.preventDefault();
 
-      const data = {
-        name: this.name.value,
-        age: this.age.value,
-        height: this.height.value,
-        goal: this.goal.value,
-        weight: this.weight.value
-      };
-
       fetch("https://script.google.com/macros/s/AKfycby2NdtRThFZeeQKq8qY3pMWAhKCp0q-8K0RpV4xZYM_D6tXG0l06NPlw-JxxY-G9h07eg/exec", {
         method: "POST",
-        body: JSON.stringify(data)
-      })
-      .then(() => {
-        statusText.textContent = "تم إرسال التسجيل بنجاح ✅";
-        form.reset();
-      })
-      .catch(() => {
-        statusText.textContent = "صار خطأ في الإرسال ❌";
+        body: JSON.stringify({
+          name: form.name.value,
+          age: form.age.value,
+          height: form.height.value,
+          goal: form.goal.value,
+          weight: form.weight.value
+        })
       });
+
+      document.getElementById("status").innerText = "تم الإرسال ✅";
+      form.reset();
     });
   </script>
 
