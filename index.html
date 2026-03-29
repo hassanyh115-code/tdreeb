@@ -12,7 +12,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0f0f0f;
+      background: #0b0b0b;
       color: white;
     }
 
@@ -25,13 +25,12 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(0, 0, 0, 0.92);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.95);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 40px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 40px;
     }
 
     .nav-right,
@@ -44,11 +43,8 @@
     .nav-link {
       color: white;
       font-size: 17px;
-      cursor: pointer;
       transition: 0.25s;
-      background: transparent;
-      border: none;
-      padding: 0;
+      cursor: pointer;
     }
 
     .nav-link:hover,
@@ -57,51 +53,52 @@
     }
 
     .hero {
-      height: 60vh;
+      height: 52vh;
       background:
-        linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)),
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.7)),
         url('yzed.png') center/cover no-repeat;
     }
 
-    .page-section {
+    .page {
       display: none;
-      padding: 80px 20px;
+      min-height: calc(100vh - 52vh - 80px);
+      padding: 70px 20px 90px;
       animation: fadeUp 0.35s ease;
     }
 
-    .page-section.active {
+    .page.active {
       display: block;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1050px;
       margin: auto;
     }
 
     .section-title {
       text-align: center;
-      font-size: 36px;
-      margin-bottom: 16px;
+      font-size: 38px;
       color: #d4af37;
+      margin: 0 0 14px;
     }
 
     .section-subtitle {
       text-align: center;
       color: #cfcfcf;
-      margin-bottom: 40px;
+      margin: 0 0 38px;
       font-size: 18px;
     }
 
     .about-box {
-      background: #171717;
+      max-width: 700px;
+      margin: 0 auto;
+      background: #151515;
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 30px;
-      line-height: 2;
-      font-size: 22px;
-      color: #f1f1f1;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      border-radius: 20px;
+      padding: 36px 28px;
       text-align: center;
+      font-size: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.20);
     }
 
     .cards {
@@ -111,55 +108,47 @@
     }
 
     .card {
-      background: #171717;
+      background: #151515;
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 18px;
-      padding: 28px 22px;
+      padding: 30px 22px;
       text-align: center;
-      transition: 0.3s;
+      transition: 0.25s;
       box-shadow: 0 10px 30px rgba(0,0,0,0.18);
     }
 
     .card:hover {
       transform: translateY(-6px);
-      border-color: rgba(212,175,55,0.45);
+      border-color: rgba(212,175,55,0.40);
     }
 
     .card h3 {
-      margin-top: 0;
-      font-size: 24px;
-      color: #fff;
+      margin: 0 0 14px;
+      font-size: 28px;
     }
 
     .price {
+      font-size: 38px;
       color: #d4af37;
-      font-size: 30px;
       font-weight: bold;
-      margin: 18px 0;
+      margin-bottom: 14px;
     }
 
     .card p {
       color: #d0d0d0;
       line-height: 1.8;
-      min-height: 72px;
+      min-height: 50px;
+      margin-bottom: 22px;
     }
 
     .card button {
-      display: inline-block;
-      margin-top: 12px;
       background: #d4af37;
       color: #111;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: bold;
       border: none;
+      border-radius: 10px;
+      padding: 12px 22px;
+      font-weight: bold;
       cursor: pointer;
-      transition: 0.25s;
-    }
-
-    .card button:hover {
-      opacity: .95;
-      transform: translateY(-1px);
     }
 
     .reviews-grid {
@@ -169,18 +158,17 @@
     }
 
     .review-box {
-      background: #171717;
+      min-height: 260px;
+      background: #151515;
       border: 1px dashed rgba(255,255,255,0.18);
       border-radius: 18px;
-      min-height: 280px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #aaa;
+      color: #9f9f9f;
       text-align: center;
       padding: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
     }
 
     .review-box img {
@@ -193,24 +181,24 @@
     .form-box {
       max-width: 520px;
       margin: auto;
-      background: #171717;
-      padding: 28px;
-      border-radius: 18px;
+      background: #151515;
       border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 28px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.18);
     }
 
     input, .submit-btn {
       width: 100%;
+      border: none;
+      border-radius: 12px;
       padding: 15px;
       margin: 10px 0;
-      border-radius: 12px;
-      border: none;
       font-size: 16px;
     }
 
     input {
-      background: #fff;
+      background: white;
       color: #111;
     }
 
@@ -219,32 +207,24 @@
       color: #111;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.25s;
-    }
-
-    .submit-btn:hover {
-      opacity: .95;
-      transform: translateY(-1px);
     }
 
     #status {
       text-align: center;
-      margin-top: 12px;
-      color: #fff;
+      margin-top: 14px;
     }
 
     .footer {
       text-align: center;
-      padding: 28px 20px;
       color: #bdbdbd;
+      padding: 24px 18px 30px;
       border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 40px;
     }
 
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(18px);
+        transform: translateY(16px);
       }
       to {
         opacity: 1;
@@ -259,16 +239,20 @@
       }
 
       .navbar {
-        padding: 14px 18px;
         flex-direction: column;
         gap: 12px;
+        padding: 16px 18px;
       }
 
       .nav-right,
       .nav-left {
-        gap: 14px;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        height: 38vh;
       }
     }
   </style>
@@ -277,29 +261,29 @@
 
   <nav class="navbar">
     <div class="nav-right">
-      <button class="nav-link active" data-page="about">عني</button>
+      <a class="nav-link" href="#about">عني</a>
     </div>
 
     <div class="nav-left">
-      <button class="nav-link" data-page="pricing">الأسعار</button>
-      <button class="nav-link" data-page="reviews">آراء المتدربين</button>
-      <button class="nav-link" data-page="register">التسجيل</button>
+      <a class="nav-link" href="#pricing">الأسعار</a>
+      <a class="nav-link" href="#reviews">آراء المتدربين</a>
+      <a class="nav-link" href="#register">التسجيل</a>
     </div>
   </nav>
 
   <div class="hero"></div>
 
-  <section id="about" class="page-section active">
+  <section id="about" class="page">
     <div class="container">
       <h2 class="section-title">عني</h2>
-      <p class="section-subtitle">نبذة مختصرة</p>
+      <p class="section-subtitle">الصفحة الرئيسية</p>
       <div class="about-box">
         أنا يزيد المفرح
       </div>
     </div>
   </section>
 
-  <section id="pricing" class="page-section">
+  <section id="pricing" class="page">
     <div class="container">
       <h2 class="section-title">الأسعار</h2>
       <p class="section-subtitle">اختر الباقة المناسبة لك</p>
@@ -309,27 +293,27 @@
           <h3>شهر</h3>
           <div class="price">150 ريال</div>
           <p>اشتراك تدريب شخصي لمدة شهر.</p>
-          <button type="button" onclick="showPage('register')">اختيار الباقة</button>
+          <button type="button" onclick="goToRegister()">اختيار الباقة</button>
         </div>
 
         <div class="card">
           <h3>شهرين</h3>
           <div class="price">250 ريال</div>
           <p>اشتراك تدريب شخصي لمدة شهرين.</p>
-          <button type="button" onclick="showPage('register')">اختيار الباقة</button>
+          <button type="button" onclick="goToRegister()">اختيار الباقة</button>
         </div>
 
         <div class="card">
           <h3>3 أشهر</h3>
           <div class="price">350 ريال</div>
           <p>اشتراك تدريب شخصي لمدة 3 أشهر.</p>
-          <button type="button" onclick="showPage('register')">اختيار الباقة</button>
+          <button type="button" onclick="goToRegister()">اختيار الباقة</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="reviews" class="page-section">
+  <section id="reviews" class="page">
     <div class="container">
       <h2 class="section-title">آراء المتدربين</h2>
       <p class="section-subtitle">أضف الصور لاحقًا</p>
@@ -343,7 +327,7 @@
     </div>
   </section>
 
-  <section id="register" class="page-section">
+  <section id="register" class="page">
     <div class="container">
       <h2 class="section-title">التسجيل</h2>
       <p class="section-subtitle">عبّئ النموذج وسأصلك قريبًا</p>
@@ -367,27 +351,37 @@
   </footer>
 
   <script>
+    const pages = document.querySelectorAll(".page");
     const navLinks = document.querySelectorAll(".nav-link");
-    const pages = document.querySelectorAll(".page-section");
 
-    function showPage(pageId) {
+    function activatePageFromHash() {
+      let hash = window.location.hash || "#about";
+
       pages.forEach(page => page.classList.remove("active"));
       navLinks.forEach(link => link.classList.remove("active"));
 
-      document.getElementById(pageId).classList.add("active");
+      const targetPage = document.querySelector(hash);
+      if (targetPage) {
+        targetPage.classList.add("active");
+      } else {
+        document.querySelector("#about").classList.add("active");
+        hash = "#about";
+      }
 
-      const activeLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
-      if (activeLink) activeLink.classList.add("active");
+      const activeLink = document.querySelector(`.nav-link[href="${hash}"]`);
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
 
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    navLinks.forEach(link => {
-      link.addEventListener("click", function () {
-        const pageId = this.getAttribute("data-page");
-        showPage(pageId);
-      });
-    });
+    function goToRegister() {
+      window.location.hash = "register";
+    }
+
+    window.addEventListener("hashchange", activatePageFromHash);
+    window.addEventListener("load", activatePageFromHash);
 
     const form = document.getElementById("form");
     const statusText = document.getElementById("status");
