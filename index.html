@@ -5,13 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>يزيد المفرح</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -38,8 +32,7 @@
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .nav-right,
-    .nav-left {
+    .nav-right, .nav-left {
       display: flex;
       gap: 24px;
       align-items: center;
@@ -48,13 +41,11 @@
     .nav-link {
       color: white;
       font-size: 17px;
-      cursor: pointer;
       transition: 0.25s;
     }
 
     .nav-link:hover {
       color: #d4af37;
-      transform: translateY(-1px);
     }
 
     .hero {
@@ -71,7 +62,6 @@
 
     .hero-content {
       max-width: 800px;
-      animation: fadeUp 0.9s ease;
     }
 
     .hero h1 {
@@ -83,21 +73,6 @@
       font-size: 24px;
       margin: 0 0 28px;
       color: #e8e8e8;
-    }
-
-    .hero-btn {
-      display: inline-block;
-      background: #d4af37;
-      color: #111;
-      padding: 14px 30px;
-      border-radius: 12px;
-      font-weight: bold;
-      transition: 0.25s;
-    }
-
-    .hero-btn:hover {
-      transform: translateY(-2px);
-      opacity: .95;
     }
 
     .section {
@@ -132,131 +107,7 @@
       font-size: 18px;
       color: #f1f1f1;
       box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      animation: fadeUp 0.8s ease;
       text-align: center;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      background: #171717;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 28px 22px;
-      text-align: center;
-      transition: 0.3s;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      animation: fadeUp 0.8s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(212,175,55,0.45);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      font-size: 24px;
-      color: #fff;
-    }
-
-    .price {
-      color: #d4af37;
-      font-size: 30px;
-      font-weight: bold;
-      margin: 18px 0;
-    }
-
-    .card p {
-      color: #d0d0d0;
-      line-height: 1.8;
-      min-height: 72px;
-    }
-
-    .card a {
-      display: inline-block;
-      margin-top: 12px;
-      background: #d4af37;
-      color: #111;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .review-box {
-      background: #171717;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      animation: fadeUp 0.8s ease;
-    }
-
-    .review-box img {
-      width: 100%;
-      display: block;
-      height: 380px;
-      object-fit: cover;
-    }
-
-    .review-text {
-      padding: 16px;
-      color: #ddd;
-      text-align: center;
-    }
-
-    .form-box {
-      max-width: 520px;
-      margin: auto;
-      background: #171717;
-      padding: 28px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      animation: fadeUp 0.8s ease;
-    }
-
-    input, button {
-      width: 100%;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 12px;
-      border: none;
-      font-size: 16px;
-    }
-
-    input {
-      background: #fff;
-      color: #111;
-    }
-
-    button {
-      background: #d4af37;
-      color: #111;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-
-    button:hover {
-      opacity: .95;
-      transform: translateY(-1px);
-    }
-
-    #status {
-      text-align: center;
-      margin-top: 12px;
-      color: #fff;
     }
 
     .footer {
@@ -267,31 +118,14 @@
       margin-top: 40px;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(28px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     @media (max-width: 900px) {
-      .cards,
-      .reviews-grid {
-        grid-template-columns: 1fr;
-      }
-
       .navbar {
         padding: 14px 18px;
         flex-direction: column;
         gap: 12px;
       }
 
-      .nav-right,
-      .nav-left {
+      .nav-right, .nav-left {
         gap: 14px;
         flex-wrap: wrap;
         justify-content: center;
@@ -311,25 +145,24 @@
 
   <nav class="navbar">
     <div class="nav-right">
-      <a class="nav-link" href="#about">عني</a>
+      <a class="nav-link" href="index.html">عني</a>
     </div>
 
     <div class="nav-left">
-      <a class="nav-link" href="#pricing">أسعار الاشتراكات</a>
-      <a class="nav-link" href="#reviews">آراء المتدربين</a>
-      <a class="nav-link" href="#register">التسجيل</a>
+      <a class="nav-link" href="pricing.html">أسعار الاشتراكات</a>
+      <a class="nav-link" href="reviews.html">آراء المتدربين</a>
+      <a class="nav-link" href="register.html">التسجيل</a>
     </div>
   </nav>
 
-  <section class="hero" id="home">
+  <section class="hero">
     <div class="hero-content">
       <h1>يزيد المفرح</h1>
       <p>سجل الآن وابدأ رحلتك الرياضية</p>
-      <a href="#register" class="hero-btn">ابدأ الآن</a>
     </div>
   </section>
 
-  <section class="section" id="about">
+  <section class="section">
     <div class="container">
       <h2 class="section-title">عني</h2>
       <p class="section-subtitle">نبذة مختصرة</p>
@@ -342,111 +175,9 @@
     </div>
   </section>
 
-  <section class="section" id="pricing">
-    <div class="container">
-      <h2 class="section-title">أسعار الاشتراكات</h2>
-      <p class="section-subtitle">اختر الباقة المناسبة لك</p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>تدريب شخصي شهر</h3>
-          <div class="price">150 ريال</div>
-          <p>متابعة وتدريب شخصي لمدة شهر كامل بخطة مناسبة لهدفك.</p>
-          <a href="#register">اشترك الآن</a>
-        </div>
-
-        <div class="card">
-          <h3>تدريب شخصي شهرين</h3>
-          <div class="price">250 ريال</div>
-          <p>برنامج تدريب شخصي لمدة شهرين مع متابعة أفضل وتطوير تدريجي.</p>
-          <a href="#register">اشترك الآن</a>
-        </div>
-
-        <div class="card">
-          <h3>تدريب شخصي 3 شهور</h3>
-          <div class="price">350 ريال</div>
-          <p>باقة متكاملة لمدة 3 شهور للوصول إلى نتيجة أوضح وثبات أكبر.</p>
-          <a href="#register">اشترك الآن</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="reviews">
-    <div class="container">
-      <h2 class="section-title">آراء المتدربين</h2>
-      <p class="section-subtitle">نتائج وتجارب بعض المتدربين</p>
-
-      <div class="reviews-grid">
-        <div class="review-box">
-          <img src="review1.jpg" alt="رأي متدرب 1">
-          <div class="review-text">صورة رأي متدرب</div>
-        </div>
-
-        <div class="review-box">
-          <img src="review2.jpg" alt="رأي متدرب 2">
-          <div class="review-text">صورة رأي متدرب</div>
-        </div>
-
-        <div class="review-box">
-          <img src="review3.jpg" alt="رأي متدرب 3">
-          <div class="review-text">صورة رأي متدرب</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="register">
-    <div class="container">
-      <h2 class="section-title">التسجيل</h2>
-      <p class="section-subtitle">عبّئ النموذج وسأصلك قريبًا</p>
-
-      <div class="form-box">
-        <form id="form">
-          <input type="text" name="name" placeholder="الاسم" required />
-          <input type="number" name="age" placeholder="العمر" required />
-          <input type="number" name="height" placeholder="الطول" required />
-          <input type="text" name="goal" placeholder="الهدف" required />
-          <input type="number" name="weight" placeholder="الوزن" required />
-          <button type="submit">تسجيل</button>
-          <div id="status"></div>
-        </form>
-      </div>
-    </div>
-  </section>
-
   <footer class="footer">
     جميع الحقوق محفوظة - يزيد المفرح
   </footer>
-
-  <script>
-    const form = document.getElementById("form");
-    const statusText = document.getElementById("status");
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const data = {
-        name: this.name.value,
-        age: this.age.value,
-        height: this.height.value,
-        goal: this.goal.value,
-        weight: this.weight.value
-      };
-
-      fetch("https://script.google.com/macros/s/AKfycby2NdtRThFZeeQKq8qY3pMWAhKCp0q-8K0RpV4xZYM_D6tXG0l06NPlw-JxxY-G9h07eg/exec", {
-        method: "POST",
-        body: JSON.stringify(data)
-      })
-      .then(() => {
-        statusText.textContent = "تم إرسال التسجيل بنجاح ✅";
-        form.reset();
-      })
-      .catch(() => {
-        statusText.textContent = "صار خطأ في الإرسال ❌";
-      });
-    });
-  </script>
 
 </body>
 </html>
