@@ -9,10 +9,6 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -50,9 +46,13 @@
       font-size: 17px;
       cursor: pointer;
       transition: 0.25s;
+      background: transparent;
+      border: none;
+      padding: 0;
     }
 
-    .nav-link:hover {
+    .nav-link:hover,
+    .nav-link.active {
       color: #d4af37;
     }
 
@@ -63,8 +63,14 @@
         url('yzed.png') center/cover no-repeat;
     }
 
-    .section {
+    .page-section {
+      display: none;
       padding: 80px 20px;
+      animation: fadeUp 0.35s ease;
+    }
+
+    .page-section.active {
+      display: block;
     }
 
     .container {
@@ -166,8 +172,6 @@
       background: #171717;
       border: 1px dashed rgba(255,255,255,0.18);
       border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
       min-height: 280px;
       display: flex;
       align-items: center;
@@ -175,6 +179,15 @@
       color: #aaa;
       text-align: center;
       padding: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .review-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .form-box {
@@ -228,11 +241,19 @@
       margin-top: 40px;
     }
 
-    @media (max-width: 900px) {
-      .cards {
-        grid-template-columns: 1fr;
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
       }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
+    @media (max-width: 900px) {
+      .cards,
       .reviews-grid {
         grid-template-columns: 1fr;
       }
@@ -256,19 +277,19 @@
 
   <nav class="navbar">
     <div class="nav-right">
-      <a class="nav-link" href="#about">عني</a>
+      <button class="nav-link active" data-page="about">عني</button>
     </div>
 
     <div class="nav-left">
-      <a class="nav-link" href="#pricing">الأسعار</a>
-      <a class="nav-link" href="#reviews">آراء المتدربين</a>
-      <a class="nav-link" href="#register">التسجيل</a>
+      <button class="nav-link" data-page="pricing">الأسعار</button>
+      <button class="nav-link" data-page="reviews">آراء المتدربين</button>
+      <button class="nav-link" data-page="register">التسجيل</button>
     </div>
   </nav>
 
   <div class="hero"></div>
 
-  <section id="about" class="section">
+  <section id="about" class="page-section active">
     <div class="container">
       <h2 class="section-title">عني</h2>
       <p class="section-subtitle">نبذة مختصرة</p>
@@ -278,7 +299,7 @@
     </div>
   </section>
 
-  <section id="pricing" class="section">
+  <section id="pricing" class="page-section">
     <div class="container">
       <h2 class="section-title">الأسعار</h2>
       <p class="section-subtitle">اختر الباقة المناسبة لك</p>
@@ -288,27 +309,27 @@
           <h3>شهر</h3>
           <div class="price">150 ريال</div>
           <p>اشتراك تدريب شخصي لمدة شهر.</p>
-          <button type="button" onclick="goToRegister()">اختيار الباقة</button>
+          <button type="button" onclick="showPage('register')">اختيار الباقة</button>
         </div>
 
         <div class="card">
           <h3>شهرين</h3>
           <div class="price">250 ريال</div>
           <p>اشتراك تدريب شخصي لمدة شهرين.</p>
-          <button type="button" onclick="goToRegister()">اختيار الباقة</button>
+          <button type="button" onclick="showPage('register')">اختيار الباقة</button>
         </div>
 
         <div class="card">
           <h3>3 أشهر</h3>
           <div class="price">350 ريال</div>
           <p>اشتراك تدريب شخصي لمدة 3 أشهر.</p>
-          <button type="button" onclick="goToRegister()">اختيار الباقة</button>
+          <button type="button" onclick="showPage('register')">اختيار الباقة</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="reviews" class="section">
+  <section id="reviews" class="page-section">
     <div class="container">
       <h2 class="section-title">آراء المتدربين</h2>
       <p class="section-subtitle">أضف الصور لاحقًا</p>
@@ -322,7 +343,7 @@
     </div>
   </section>
 
-  <section id="register" class="section">
+  <section id="register" class="page-section">
     <div class="container">
       <h2 class="section-title">التسجيل</h2>
       <p class="section-subtitle">عبّئ النموذج وسأصلك قريبًا</p>
@@ -346,9 +367,27 @@
   </footer>
 
   <script>
-    function goToRegister() {
-      document.getElementById("register").scrollIntoView({ behavior: "smooth" });
+    const navLinks = document.querySelectorAll(".nav-link");
+    const pages = document.querySelectorAll(".page-section");
+
+    function showPage(pageId) {
+      pages.forEach(page => page.classList.remove("active"));
+      navLinks.forEach(link => link.classList.remove("active"));
+
+      document.getElementById(pageId).classList.add("active");
+
+      const activeLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
+      if (activeLink) activeLink.classList.add("active");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", function () {
+        const pageId = this.getAttribute("data-page");
+        showPage(pageId);
+      });
+    });
 
     const form = document.getElementById("form");
     const statusText = document.getElementById("status");
